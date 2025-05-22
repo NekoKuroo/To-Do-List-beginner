@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To-Do List</title>
+
+  <style>
+.container {
+  max-width: 400px;
+  margin: 50px auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 400px;
+}
+/* Tambahkan ini untuk membuat body menjadi flex container */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f2f5;
+  font-family: sans-serif;
+}
+
+#taskListPending li,
+#taskListDone,
+.li-content span {
+  transition: all 0.7s ease;
+}
+
+#taskListPending {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Ini penting untuk memusatkan item */
+}
+#taskListDone {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Ini penting untuk memusatkan item */
+}
+#taskListPending li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #cce5ff;
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  width: 100%;            /* Full width dari #taskList */
+  max-width: 300px;       /* Tapi dibatasi agar tidak terlalu lebar */
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+}
+#taskListDone li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: salmon;
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  width: 100%;            /* Full width dari #taskListDone */
+  max-width: 300px;       /* Batasi agar tidak terlalu lebar */
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+}
+
+/* Container isi teks dan tombol */
+.li-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.li-content span {
+  flex: 1;
+  font-size: 14px;
+  word-break: break-word;
+}
+
+/* Tombol hapus */
+#taskList li button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#taskList li button:hover {
+  background-color: darkred;
+}
+.input-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.input-section input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.input-section button {
+  padding: 10px 15px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.input-section button:hover {
+  background-color: #0056b3;
+}
+
+</style>
+
+</head>
+<body>
+  <div class="container">
+    <h1>To-Do List</h1>
+    <div class="input-section">
+      <input type="text" id="taskInput" placeholder="Tambahkan tugas baru..." />
+      <button id="addBtn">Tambah</button>
+    </div>
+    <ul id="taskList"></ul>
+
+    <h4>Tugas Belum Selesai</h4>
+    <ul id="taskListPending"></ul>
+
+    <h4>Tugas Selesai</h4>
+    <ul id="taskListDone"></ul>
+
+  </div>
+
+  <script src="js.js"></script>
+</body>
+</html>
